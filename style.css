@@ -1,0 +1,196 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "PT Sans", sans-serif;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+body {
+  background-color: #222;
+  background: url(images/frozen.jpg) no-repeat;
+  background-size: cover;
+}
+.card {
+  width: 90%;
+  max-width: 470px;
+  background: linear-gradient(135deg, #00feba, #5b548a);
+  color: #fff;
+  margin: 30px auto 0;
+  border-radius: 20px;
+  padding: 40px 35px;
+  text-align: center;
+}
+
+.search {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.search input {
+  border: 0;
+  outline: 0;
+  background: #ebfffc;
+  color: #555;
+  padding: 10px 25px;
+  height: 60px;
+  border-radius: 30px;
+  flex: 1;
+  margin-right: 16px;
+  font-size: 18px;
+}
+
+.search button {
+  border: 0;
+  outline: 0;
+  background: #ebfffc;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+}
+.search button img {
+  width: 16px;
+  margin-top: 7px;
+}
+.weather-content {
+  display: none;
+}
+
+.weather-icon {
+  width: 170px;
+  margin-top: 30px;
+}
+.weather h1 {
+  font-size: 40px;
+  font-weight: 500;
+}
+.weather h2 {
+  font-size: 40px;
+  font-weight: 500;
+  margin-top: -10px;
+}
+.weather-icon {
+  width: 100px;
+  display: flex;
+  margin-left: 40%;
+}
+.details {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  margin-top: 50px;
+}
+.col {
+  display: flex;
+  align-items: center;
+  text-align: left;
+}
+.col img {
+  width: 40px;
+  margin-right: 10px;
+}
+
+.humidity,
+.wind {
+  font-size: 28px;
+  margin-top: -6px;
+  margin-bottom: 10px;
+}
+
+.error {
+  text-align: left;
+  margin-left: 10px;
+  font-size: 14px;
+  margin-top: 10px;
+  display: none;
+}
+
+/* Loader Alanı */
+
+#loader-container {
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999; /* Yüksek bir z-index değeri kullanarak diğer elementlerin üzerinde olmasını sağlayın */
+}
+
+#loader-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.loader {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  box-shadow: 25px 25px 75px rgba(0, 0, 0, 0.55);
+  border: 1px solid #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.loader::before {
+  content: "";
+  position: absolute;
+  inset: 20px;
+
+  border: 1px dashed#444;
+  border-radius: 50%;
+  box-shadow: inset -5px -5px 25px rgba(0, 0, 0, 0.25),
+    inset 5px 5px 35px rgba(0, 0, 0, 0.597);
+}
+
+.loader::after {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px dashed#444;
+  box-shadow: inset -5px -5px 25px rgba(0, 0, 0, 0.25),
+    inset 5px 5px 35px rgba(0, 0, 0, 0.25);
+}
+
+.loader span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  background: transparent;
+  transform-origin: top left;
+  animation: radar81 2s linear infinite;
+  border-top: 1px dashed #fff;
+}
+
+.loader span::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: seagreen;
+  transform-origin: top left;
+  transform: rotate(-55deg);
+  filter: blur(30px) drop-shadow(20px 20px 20px seagreen);
+}
+
+@keyframes radar81 {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
